@@ -1,0 +1,28 @@
+version: "3"
+services:
+  "1":
+    image: bash:latest
+    command: bash -c "printenv | sort"
+    environment:
+      - ALL_ENV_VARS
+      - GO_ENV=production
+  "2":
+    image: bash:latest
+    command: bash -c "printenv | sort"
+    environment:
+      - ENV=test
+      - ALL_ENV_VARS
+      - GO_ENV=production
+    ports:
+      - "50051:50051"
+    networks:
+      - mynet
+    volumes:
+      - storage:/app
+
+networks:
+  mynet:
+    driver: bridge
+
+volumes:
+  storage:

@@ -1,0 +1,28 @@
+networks:
+    mynet:
+        driver: bridge
+services:
+    "1":
+        command: bash -c "printenv | sort"
+        environment:
+            - ENVIRONMENT1=hello
+            - ENVIRONMENT2=world
+            - GO_ENV=production
+        image: bash:latest
+    "2":
+        command: bash -c "printenv | sort"
+        environment:
+            - ENV=test
+            - ENVIRONMENT1=hello
+            - ENVIRONMENT2=world
+            - GO_ENV=production
+        image: bash:latest
+        networks:
+            - mynet
+        ports:
+            - 50051:50051
+        volumes:
+            - storage:/app
+version: "3"
+volumes:
+    storage: null

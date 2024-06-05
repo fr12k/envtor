@@ -3,20 +3,20 @@ networks:
         driver: bridge
 services:
     "1":
-        command: bash -c "printenv | sort"
+        command: sh -c "env | sort"
         environment:
             - ENVIRONMENT1=hello
             - ENVIRONMENT2=world
             - GO_ENV=production
-        image: bash:latest
+        image: alpine
     "2":
-        command: bash -c "printenv | sort"
+        command: sh -c "env | sort"
         environment:
             - ENV=test
             - ENVIRONMENT1=hello
             - ENVIRONMENT2=world
             - GO_ENV=production
-        image: bash:latest
+        image: alpine
         networks:
             - mynet
         ports:

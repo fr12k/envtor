@@ -17,5 +17,8 @@ func main() {
 	opts.Verbose = false
 	opts.File = "main.go"
 	opts.Registry = "containifyci"
+	opts.Properties = map[string]*build.ListValue{
+		"goreleaser": build.NewList("true"),
+	}
 	build.Serve(opts)
 }

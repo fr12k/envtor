@@ -2,7 +2,7 @@ module .containifyci
 
 go 1.25.0
 
-require github.com/containifyci/engine-ci/client v0.20.0
+require github.com/containifyci/engine-ci/client v0.21.0
 
 require (
 	github.com/containifyci/engine-ci/protos2 v0.18.2 // indirect
